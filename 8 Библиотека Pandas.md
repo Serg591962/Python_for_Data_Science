@@ -127,3 +127,40 @@ dp.dropna()
 dp.replace('Maul', 'Smiley', inplace=True) - в текущей таблице ячейки со значением 'Maul' заменяются на  'Smiley'
 dp = dp.replace('Maul', 'Smiley') - возвращает копию таблицы с заменой и сохраняет её обратно в переменную dp
 dp2 = dp.replace('Maul', 'Smiley') - возвращает копию таблицы с заменой и сохраняет её в переменную dp2
+dp2=  dp.replace(r'(s)([a-z]+)', r'S\2', regex=True) - метод `replace(..., regex=True)` используется для замены по регулярному выражению (шаблону), а не по точному значению.
+- (s) — первая группа, соответствует букве s в нижнем регистре
+- (`[a-z]+`) — вторая группа, соответствует одному или более символам от a до z
+dp2 = dp.replace(r'an', 'Sam', regex=True)  - по шаблону ''shanda'' заменит на 'shSamda'
+dp2 = dp.replace({'first': r'an'}, 'Sam', regex=True) - по шаблону ''shanda'' заменит на 'shSamda' в столбце 'first'
+dp2.loc[0] = dp.loc[0].replace(r'an', 'Sam', regex=True) - по шаблону ''shanda'' заменит на 'shSamda' в 1 строке
+dp2 = dp.replace(r'\bsam\b', 'Sam', regex=True) - по шаблону 'sam', строго как отдельное слово (границы слова) 'na sam ka' заменит на 'na Sam ka', 'nasamka' не заменит на 'naSamka'
+dp2 = dp.replace('sam', 'Sam', regex=False) - заменит только ячейки, в которых вся строка ровно 'sam', но 'na sam ka' не заменит на 'na Sam ka', 'nasamka' не заменит на 'naSamka'
+**метод apply() - вызывает функцию для значений.**
+для Series
+import pandas as pd
+`s = pd.Series([10, 20, 30, 40, 50])`
+result = s.apply(lambda x: x - 5)
+print(result) =>0     5
+			1    15
+			2    25
+			3    35
+			4    45
+			dtype: int64
+для pandas.DataFrame
+import pandas as pd
+dp = pd.DataFrame({'A': [1, 2, 3],'B': [10, 20, 30]})
+result = dp.apply(lambda x: x - 5)
+print(result) =>              A     B
+				0  -4      5
+				1  -3     15
+				2  -2     25
+result = dp.apply(lambda x: x.sum()) # считает сумму каждого столбца
+result = dp.apply(lambda x: x.sum(), axis=0) # считает сумму каждого столбца
+print(result) => A     6
+			 B     60
+			dtype: int64
+result = dp.apply(lambda x: x.sum(), axis=1) # считает сумму в каждой строке
+print(result) => 0    11
+			1    22
+			2    33
+			dtype: int64
