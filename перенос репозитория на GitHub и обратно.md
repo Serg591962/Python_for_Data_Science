@@ -16,6 +16,13 @@
 - $ git add .
 - $ git commit -m "2 day"
 - $ git push -u origin main => перенос файлов на гитхаб
+###### **обновление репозитория на GitHub**
+- Открой GitHub
+- $ cd "/d/Obsidian/seychas/Python_for_Data_Science" - в Git Bash переходим в папку которую будем клонировать
+- $ git remote -v - проверить, связан ли локальный репозиторий с удалённым. Если нет git remote add origin  https://github.com/Serg591962/Python_for_Data_Science.git
+- $ git add .
+- $ git commit -m "2 day"
+- $ git push origin main => обновить файлы на гитхаб
 ###### **клонировать репозиторий на компьютер**
 - Перейди на страницу твоего репозитория на GitHub
 - Открыть Git Bash на новом компьютере в том месте, где будет сохранен проект:  cd "/d/Obsidian/seychas" - 
