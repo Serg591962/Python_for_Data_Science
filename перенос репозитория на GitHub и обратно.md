@@ -40,5 +40,5 @@
 
 пароль Cthutq36226
 
-cd "/d/Obsidian/seychas/zaryadka"
+cd "/d/KRIPTA"
 git clone https://github.com/Serg591962/zaryadka.git
