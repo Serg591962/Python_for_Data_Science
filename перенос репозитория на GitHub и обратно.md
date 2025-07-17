@@ -39,6 +39,8 @@
 
 
 пароль Cthutq36226
-
+cd "/d/Obsidian/seychas/sud"
 cd "/d/KRIPTA"
+cd "/d/sud"
 git clone https://github.com/Serg591962/zaryadka.git
+git clone https://github.com/Serg591962/sud.git
